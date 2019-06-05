@@ -1,0 +1,34 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using Project.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home<span class="sr-only">(current)</span></a>
+    </li>
+    @if (User.IsInRole("HR"))
+    {
+        <li class="nav-item">
+            <a asp-area="HR" asp-controller="Requests" asp-action="Index" class="nav-link">Change Requests</a>
+        </li>
+    }
+    @if (User.IsInRole("System") || User.IsInRole("Administrator"))
+    {
+        <li class="nav-item">
+            <a asp-area="System" asp-controller="Dashboard" asp-action="Index" class="nav-link">System</a>
+        </li>
+    }
+</ul>
+
+}
+else
+{
+    <ul class="navbar-nav mr-auto">
+       
+    </ul>
+}

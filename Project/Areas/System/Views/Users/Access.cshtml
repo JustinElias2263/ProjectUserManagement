@@ -1,0 +1,26 @@
+﻿@model Project.Areas.System.Models.UserAccessViewModel
+@{
+    ViewData["Title"] = "Access";
+}
+<link href="~/css/Checkboxes.css" rel="stylesheet" />
+
+<form asp-area="System" asp-controller="Users" asp-action="Access" asp-route-UserId="@Context.Request.Query["UserId"]" method="post">
+    @for (int i = 0; i < Model.AccessVM.Count; i++)
+    {
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                @Model.AccessVM[i].Name
+                <label class="switch ">    
+                    <input type="checkbox" class="success" name="@Model.AccessVM[i].Selected" value="@Model.AccessVM[i].Name" checked="@Model.AccessVM[i].Selected" />
+                    <span class="slider ifund"></span>
+                </label>
+            </li>
+        </ul>
+    }
+
+    <div class="float-right">
+        <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+    </div>
+
+</form>
+

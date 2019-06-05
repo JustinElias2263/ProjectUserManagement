@@ -1,0 +1,127 @@
+﻿@model Project.Areas.System.Models.CreateUserViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Add User</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-action="Create" asp-area="System" asp-controller="Users">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Staff Id</label>
+                                <input asp-for="StaffId" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input asp-for="FirstName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input asp-for="MiddleName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input asp-for="LastName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label asp-for="Address"></label>
+                                <input asp-for="Address" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label asp-for="City"></label>
+                                <input asp-for="City" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label asp-for="State"></label>
+                                <input asp-for="State" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Zip Code</label>
+                                <input asp-for="ZipCode" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label asp-for="Country"></label>
+                                <input asp-for="Country" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Home Email</label>
+                                <div class="input-group">
+                                    <input asp-for="HomeEmail" class="form-control" />
+                                    <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="Username"></label>
+                                <input asp-for="Username" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <div class="input-group">
+                                    <input asp-for="Email" class="form-control" />
+                                    <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <a asp-area="System" asp-controller="Users" asp-action="Index">Return to Users</a>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js"></script>

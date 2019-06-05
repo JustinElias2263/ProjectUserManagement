@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "System Dashboard";
+}
+
+<link href="~/css/SystemDashboardCards.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-3">
+        <a asp-area="System" asp-controller="Users" asp-action="Index">
+            <div class="card-counter primary">
+                <i class="fa fa-users" style="font-size:5em; opacity:0.2;"></i>
+                <span class="count-numbers">@ViewBag.UsersCount</span>
+                <span class="count-name">Users</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a asp-area="System" asp-controller="Approvers" asp-action="Index">
+            <div class="card-counter danger">
+                <i class="fas fa-user-lock" style="font-size:5em; opacity:0.2;"></i>
+                <span class="count-numbers">@ViewBag.ApproversCount</span>
+                <span class="count-name">Approvers</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a asp-area="System" asp-controller="Notifications" asp-action="Index">
+            <div class="card-counter success">
+                <i class="far fa-envelope" style="font-size:5em; opacity:0.2;"></i>
+                <span class="count-name">Notifications</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+

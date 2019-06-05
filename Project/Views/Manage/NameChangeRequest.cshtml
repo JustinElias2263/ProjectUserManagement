@@ -1,0 +1,83 @@
+﻿@model NameChangeRequestViewModel
+@{
+    ViewData["Title"] = "Name Change Request";
+}
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="post" asp-action="NameChangeRequest" asp-controller="Manage" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>First Name</label>
+                <input asp-for="oldFirstName" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label>Middle Name</label>
+                <input asp-for="oldMiddleName" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input asp-for="oldLastName" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="newFirstName"></label>
+                <input asp-for="newFirstName" class="form-control" />
+                <span asp-validation-for="newFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newMiddleName"></label>
+                <input asp-for="newMiddleName" class="form-control" />
+                <span asp-validation-for="newMiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="newLastName"></label>
+                <input asp-for="newLastName" class="form-control" />
+                <span asp-validation-for="newLastName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Reason"></label>
+                <input asp-for="Reason" class="form-control"  required/>
+                <span asp-validation-for="Reason" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <label>Name Change Request Form</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button id="file-button-browse" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-file"></span> Browse
+                    </button>
+                </span>
+                <input type="file" id="files-input-upload" name="fileBase" style="display:none" accept=".jpg,.pdf,.png,.pdf,.docx,.xlsx" required>
+                <input type="text" id="file-input-name" disabled="disabled" placeholder="File not selected" class="form-control">
+            </div>
+            <label style="display:none;" class="text-danger" id="FileLimit">File size exceeds 25 MB.</label>
+            <script type="text/javascript">
+                document.getElementById('file-button-browse').addEventListener('click', function () {
+                    document.getElementById('files-input-upload').click();
+                });
+                document.getElementById('files-input-upload').addEventListener('change', function () {
+                    document.getElementById('file-input-name').value = this.files[0].name;
+                });
+            </script>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="float-right">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
